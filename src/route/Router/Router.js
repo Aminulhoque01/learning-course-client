@@ -20,7 +20,8 @@ export const routes= createBrowserRouter([
             
             {
                 path:'/course',
-                element:<Course></Course>
+                element:<Course></Course>,
+                loader:()=>fetch('https://learning-course-server.vercel.app/course')
             },
             {
                 path:'/login',

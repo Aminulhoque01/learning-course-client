@@ -1,13 +1,15 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGoogle, FaGithub, } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
     const {googleLogin,emailLogin} = useContext(AuthContext);
+    const [error, setError]= useState();
    
 
     const handlerLogin =(event)=>{
@@ -24,6 +26,8 @@ const Login = () => {
         })
         .catch(error=>{
             console.log(error);
+            setError(error.message);
+            
         })
         console.log(email,password);
 
@@ -39,6 +43,7 @@ const Login = () => {
         })
         .catch(error=>{
             console.error(error);
+            setError(error.message)
         })
     }
 
@@ -57,6 +62,12 @@ const Login = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name='password' placeholder="Password" />
                     </Form.Group>
+                    <div>
+                       {
+                         (error)
+                         
+                       }
+                    </div>
                 
                     <Button variant="primary" type="submit">
                         Login

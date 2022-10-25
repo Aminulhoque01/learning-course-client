@@ -44,10 +44,10 @@ const Header = () => {
                         <Nav>
                             <Nav.Link  className='pt-3'>
                                 {
-                                    user?.uid?
+                                    user?
                                     <>
-                                        <span>{user?.displayName}</span>
                                         
+                                        <span>{user.displayName}</span>
                                     </>
                                     :
                                     <>
@@ -60,11 +60,13 @@ const Header = () => {
                             </Nav.Link>
                             <Nav.Link>
                                 {
-                                    user?.photoURL?
+                                    user?
                                     <>
-                                    <Image 
-                                    style={{height:'30px'}} roundedCircle
-                                    src={user?.photoURL}
+                                    <Image
+                                        
+                                        style={{height:'30px'}} roundedCircle
+                                        
+                                        src={user.photoURL}
                                      ></Image>
                                       <Button onClick={handlerLogOut} variant="danger">Login</Button>
                                     </>
