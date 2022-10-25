@@ -1,7 +1,11 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
-const CourseDetails = () => {
+import { Link } from 'react-router-dom';
+const CourseDetails = ({course}) => {
+    console.log(course);
+    const{title, img,price,description,id}= course;
+
     return (
         <div>
              
@@ -11,13 +15,11 @@ const CourseDetails = () => {
                 
             
                 <Card className="g-4">
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                    <Card.Img  style={{width:"830px", height:"350px"}}  src={img} className='pt-2 rounded' />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
+                        <Card.Title><h3>{title}</h3></Card.Title>
                         <Card.Text>
-                            This is a longer card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit
-                            longer.
+                           {description.slice(0,250)+'......'}<Link><small>show details</small></Link>
                         </Card.Text>
                     </Card.Body>
                 </Card>

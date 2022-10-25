@@ -17,7 +17,7 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="black" variant="dark">
 
                 <Container>
                         <img
@@ -68,9 +68,9 @@ const Header = () => {
                                         
                                         src={user.photoURL}
                                      ></Image>
-                                      <Button onClick={handlerLogOut} variant="danger">Login</Button>
+                                      <Button onClick={handlerLogOut} variant="danger">Logout</Button>
                                     </>
-                                     :<FaUser></FaUser>
+                                    :<FaUser></FaUser>
                                 }
                             </Nav.Link>
                         </Nav>
