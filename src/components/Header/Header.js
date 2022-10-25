@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
+import { FaUser} from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import learning from '../../asstes/Image/learning.jpg';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const {user,logout} = useContext(AuthContext);
+
+    const handlerLogOut=()=>{
+        logout();
+    }
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -34,9 +42,34 @@ const Header = () => {
                             
                         </Nav>
                         <Nav>
-                            <Nav.Link><Link to='/login' className='fw-bold text-decoration-none text-secondary'>Login</Link></Nav.Link>
-                            <Nav.Link eventKey={2}>
-                                Dank memes
+                            <Nav.Link  className='pt-3'>
+                                {
+                                    user?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login' className='fw-bold text-decoration-none text-secondary'>Login</Link>
+                                        
+                                    </>
+                                }
+                               
+                            
+                            </Nav.Link>
+                            <Nav.Link>
+                                {
+                                    user?
+                                    <>
+                                    <Image 
+                                    style={{height:'30px'}} roundedCircle
+                                    src={user?.photoURL}
+                                     ></Image>
+                                      <Button onClick={handlerLogOut} variant="danger">Login</Button>
+                                    </>
+                                     :<FaUser></FaUser>
+                                }
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

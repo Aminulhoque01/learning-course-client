@@ -1,10 +1,14 @@
-import React from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGoogle, FaGithub, } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const {googleLogin,emailLogin} = useContext(AuthContext);
+   
 
     const handlerLogin =(event)=>{
         event.preventDefault();
@@ -12,8 +16,30 @@ const Login = () => {
         const email= form.email.value;
         const password= form.password.value;
 
+        emailLogin(email,password)
+        .then(result=>{
+            const user= result.user;
+            form.reset('');
+            console.log(user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
         console.log(email,password);
 
+    }
+
+     const googleProvider = new GoogleAuthProvider();
+
+    const googleHadler =()=>{
+        googleLogin(googleProvider)
+        .then(result =>{
+            const user= result.user;
+            console.log(user);
+        })
+        .catch(error=>{
+            console.error(error);
+        })
     }
 
     return (
@@ -41,7 +67,7 @@ const Login = () => {
 
             <div>
                 <div className='mt-5'>
-                 <Button variant="outline-warning"><FaGoogle></FaGoogle> Login In Withe Google</Button>
+                 <Button onClick={googleHadler} variant="outline-warning"><FaGoogle></FaGoogle> Login In Withe Google</Button>
                 </div>
                 <div className='mt-2'>
                     <Button variant="outline-dark"><FaGithub></FaGithub> Login In Withe GitHub</Button>

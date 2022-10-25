@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const {createUser,updateUserProfile}= useContext(AuthContext);
+
     const handlerRegister =(event)=>{
         event.preventDefault();
 
@@ -11,13 +15,38 @@ const Register = () => {
         const name= form.name.value;
         const email= form.email.value;
         const password= form.password.value;
-        const photourl= form.url.value;
+        const photoUrl= form.url.value;
         
         if(password.length < 6){
             alert('you input must 6 chart password');
         }
-        console.log(name,email,password,photourl);
 
+        createUser(email,password)
+        .then(result=>{
+            const user = result.user;
+            form.reset('');
+            console.log(user);
+            handleUpdateUserProfile(name, photoUrl);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+
+        console.log(name,email,password,photoUrl);
+
+    }
+
+    const handleUpdateUserProfile = (name, photoUrl )=>{
+        const profile={
+            displayName:name,
+
+            photoURL: photoUrl,
+        }
+        updateUserProfile(profile)
+        .then(()=>{})
+        .cath(error=>{
+            console.error(error);
+        })
     }
 
     return (

@@ -6,7 +6,7 @@ const Error = () => {
             <div className='ms-auto'>
                 <h1 className='text-danger text-center fw-bold'>404</h1>
                 <h1 className='text-danger text-center fw-bold'>Not Found</h1>
-                <p className='text-danger text-center fw-bold'><TiCancel size="sm"></TiCancel></p>
+                <p className='text-danger text-center fw-bold'><TiCancel></TiCancel></p>
                 
             </div>
         </div>
