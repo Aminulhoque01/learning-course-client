@@ -8,8 +8,8 @@ const auth= getAuth(app)
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
 
-    const createUser=(name, email,password,photourl)=>{
-        return createUserWithEmailAndPassword(auth,email,password,name, photourl);
+    const createUser=(email,password,)=>{
+        return createUserWithEmailAndPassword(auth,email,password);
     }
 
     const emailLogin=(email,password)=>{

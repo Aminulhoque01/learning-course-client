@@ -15,7 +15,7 @@ const Register = () => {
         const name= form.name.value;
         const email= form.email.value;
         const password= form.password.value;
-        const photoUrl= form.url.value;
+        const photoURL= form.url.value;
         
         if(password.length < 6){
             alert('you input must 6 chart password');
@@ -24,24 +24,26 @@ const Register = () => {
         createUser(email,password)
         .then(result=>{
             const user = result.user;
-            form.reset('');
             console.log(user);
-            handleUpdateUserProfile(name, photoUrl);
+            handleUpdateUserProfile(name, photoURL);
+            form.reset('');
+
         })
         .catch(error=>{
             console.log(error);
         })
 
-        console.log(name,email,password,photoUrl);
+        console.log(name,email,password,photoURL);
 
     }
 
-    const handleUpdateUserProfile = (name, photoUrl )=>{
+    const handleUpdateUserProfile = (name, photoURL )=>{
         const profile={
             displayName:name,
 
-            photoURL: photoUrl,
-        }
+            photoURL: photoURL,
+        };
+        
         updateUserProfile(profile)
         .then(()=>{})
         .cath(error=>{

@@ -44,7 +44,7 @@ const Header = () => {
                         <Nav>
                             <Nav.Link  className='pt-3'>
                                 {
-                                    user?
+                                    user?.uid?
                                     <>
                                         <span>{user?.displayName}</span>
                                         
@@ -60,7 +60,7 @@ const Header = () => {
                             </Nav.Link>
                             <Nav.Link>
                                 {
-                                    user?
+                                    user?.photoURL?
                                     <>
                                     <Image 
                                     style={{height:'30px'}} roundedCircle
