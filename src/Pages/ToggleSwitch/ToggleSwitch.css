@@ -1,7 +1,5 @@
-.container {
-    text-align: center;
-  }
-  .toggle-switch {
+
+.toggle-switch {
     position: relative;
     width: 80px;
     display: inline-block;

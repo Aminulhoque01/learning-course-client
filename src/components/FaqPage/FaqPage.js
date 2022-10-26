@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 const FaqPage = () => {
     return (
-       <div style={{height:'100vh'}} className='bg-dark'>
+       <div style={{height:'200vh'}} className='bg-dark'>
             <div className='container pt-5'>
                 
                 <Card body><h1>1. what is cors?</h1></Card>;
