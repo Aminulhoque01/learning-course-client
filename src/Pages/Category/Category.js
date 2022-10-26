@@ -9,14 +9,18 @@ import jsPDF from 'jspdf';
 
 
 
+
 const Category = () => {
     const Course= useLoaderData();
-    
+   
    
     const handlerPdf =()=>{
         const doc= jsPDF('landscape', 'px','a4', 'false');
-        
-        doc.addImage(Course.img, 65,20,500,400);
+            doc.addImage(Course.img, 65,20,500,400);
+            doc.addPage()
+            doc.text(Course.name,60,60)
+            doc.text(Course.price, 60,80)
+            doc.text(Course.description.slice(0,100), 60,100,)
         
        
 
