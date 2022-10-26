@@ -3,12 +3,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Blog from '../../components/BlogPage/Blog';
 import Error from "../../components/Error/Error/Error";
 import FaqPage from '../../components/FaqPage/FaqPage';
+import GetPremium from '../../components/GetPremium/GetPremium';
 import Home from "../../components/Home/Home";
 import Login from "../../components/Login/Login";
 import Register from '../../components/register/Register/Register';
 import Course from "../../Course/Course/Course";
 import Main from "../../layout/layout/Main";
 import Category from '../../Pages/Category/Category';
+import PrivetRout from '../PrivetRout/PrivetRout';
 
 export const routes= createBrowserRouter([
     {
@@ -30,6 +32,10 @@ export const routes= createBrowserRouter([
                 path:'/course/:id',
                 element:<Category></Category>,
                 loader:({params})=>fetch(`https://learning-course-server.vercel.app/course/${params.id}`)
+            },
+            {
+                path:'/premium',
+                element:<PrivetRout><GetPremium></GetPremium></PrivetRout>
             },
             {
                 path:'/faq',

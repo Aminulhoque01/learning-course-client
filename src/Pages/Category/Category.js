@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -23,7 +23,7 @@ const Category = () => {
                         <footer className="footer pb-5">
                             <h2>Prices:{Course.price}</h2>
                         </footer>
-                        <Button variant="primary">Get premium access.</Button>
+                       <Link to="/premium"><Button variant="primary">Get premium access.</Button></Link>
                     </Card.Body>
                 </Card>
                 
