@@ -3,16 +3,17 @@ import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaUser} from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import learning from '../../asstes/Image/learning.jpg';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import ToggleSwitch from '../../Pages/ToggleSwitch/ToggleSwitch ';
 
 const Header = () => {
-    const {user,logout} = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
 
-    const handlerLogOut=()=>{
+    const handlerLogOut = () => {
         logout();
     }
     return (
@@ -20,15 +21,15 @@ const Header = () => {
             <Navbar collapseOnSelect expand="lg" bg="black" variant="dark">
 
                 <Container>
-                        <img
-                            style={{height:'40px'}}
-                            className="d-block rounded"
-                            src={learning}
-                            alt="First slide"
-                        /> 
+                    <img
+                        style={{ height: '40px' }}
+                        className="d-block rounded"
+                        src={learning}
+                        alt="First slide"
+                    />
 
                     <Navbar.Brand>
-                       
+
                         <Link to='/' className='fw-bold text-decoration-none text-secondary'>
                             Learning-Course
                         </Link></Navbar.Brand>
@@ -39,38 +40,39 @@ const Header = () => {
                             <Nav.Link ><Link to='/course' className='fw-bold text-decoration-none text-secondary'>Courses</Link></Nav.Link>
                             <Nav.Link ><Link to='/faq' className='fw-bold text-decoration-none text-secondary'>FAQ</Link></Nav.Link>
                             <Nav.Link ><Link to='/blog' className='fw-bold text-decoration-none text-secondary'>Blog</Link></Nav.Link>
+                            <ToggleSwitch label=" " />
                             
                         </Nav>
                         <Nav>
-                            <Nav.Link  className='pt-3'>
+                            <Nav.Link className='pt-3'>
                                 {
-                                    user?.displayName?
-                                    <>
-                                        
-                                        <span>{user?.displayName}</span>
-                                    </>
-                                    :
-                                    <>
-                                        <Link to='/login' className='fw-bold text-decoration-none text-secondary'>Login</Link>
-                                        
-                                    </>
+                                    user?.displayName ?
+                                        <>
+
+                                            <span>{user?.displayName}</span>
+                                        </>
+                                        :
+                                        <>
+                                            <Link to='/login' className='fw-bold text-decoration-none text-secondary'>Login</Link>
+
+                                        </>
                                 }
-                               
-                            
+
+
                             </Nav.Link>
                             <Nav.Link>
                                 {
-                                    user?.photoURL?
-                                    <>
-                                    <Image
-                                        
-                                        style={{height:'30px'}} roundedCircle
-                                        
-                                        src={user?.photoURL}
-                                     ></Image>
-                                        <Button onClick={handlerLogOut} variant="outline-danger">Logout</Button>
-                                    </>
-                                    :<FaUser></FaUser>
+                                    user?.photoURL ?
+                                        <>
+                                            <Image
+
+                                                style={{ height: '30px' }} roundedCircle
+
+                                                src={user?.photoURL}
+                                            ></Image>
+                                            <Button onClick={handlerLogOut} variant="outline-danger">Logout</Button>
+                                        </>
+                                        : <FaUser></FaUser>
                                 }
                             </Nav.Link>
                         </Nav>

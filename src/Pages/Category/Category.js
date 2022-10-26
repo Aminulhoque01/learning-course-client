@@ -2,10 +2,9 @@ import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import course3 from '../../asstes/Image/course3.jpg'
-
 import { HiDocument } from "react-icons/hi";
 import jsPDF from 'jspdf';
+
 
 
 
