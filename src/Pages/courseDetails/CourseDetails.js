@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CourseDetails = ({course}) => {
    
-    const{title, img,price,description,id}= course;
+    const{title, img,description}= course;
  
 
     return (
@@ -17,7 +17,7 @@ const CourseDetails = ({course}) => {
                 
             
                 <Card className="g-4">
-                    <Card.Img  style={{width:"830px", height:"350px"}}  src={img} className='pt-2 rounded' />
+                    <Card.Img src={img} className='pt-2 rounded' />
                     <Card.Body>
                         <Card.Title><h3>{title}</h3></Card.Title>
                         <Card.Text>

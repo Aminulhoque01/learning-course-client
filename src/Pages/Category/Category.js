@@ -23,7 +23,7 @@ const Category = () => {
                         <footer className="footer pb-5">
                             <h2>Prices:{Course.price}</h2>
                         </footer>
-                        <Button variant="primary">BUY NOW</Button>
+                        <Button variant="primary">Get premium access.</Button>
                     </Card.Body>
                 </Card>
                 

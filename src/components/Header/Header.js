@@ -37,8 +37,8 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link><Link to="/" className='fw-bold text-decoration-none text-secondary'>Home</Link></Nav.Link>
                             <Nav.Link ><Link to='/course' className='fw-bold text-decoration-none text-secondary'>Courses</Link></Nav.Link>
-                            <Nav.Link ><Link to='' className='fw-bold text-decoration-none text-secondary'>FAQ</Link></Nav.Link>
-                            <Nav.Link ><Link to='' className='fw-bold text-decoration-none text-secondary'>Blog</Link></Nav.Link>
+                            <Nav.Link ><Link to='/faq' className='fw-bold text-decoration-none text-secondary'>FAQ</Link></Nav.Link>
+                            <Nav.Link ><Link to='/blog' className='fw-bold text-decoration-none text-secondary'>Blog</Link></Nav.Link>
                             
                         </Nav>
                         <Nav>
