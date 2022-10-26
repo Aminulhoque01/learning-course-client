@@ -23,6 +23,10 @@ const AuthProvider = ({children}) => {
 
     }
 
+    const githubLogin=(githubProvider)=>{
+        return signInWithPopup(auth, githubProvider)
+    }
+
     const updateUserProfile= (profile)=>{
         return updateProfile(auth.currentUser, profile);
     }
@@ -46,6 +50,7 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         googleLogin,
+        githubLogin,
         updateUserProfile,
         emailLogin,
         logout,

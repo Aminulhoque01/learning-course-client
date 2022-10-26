@@ -2,9 +2,11 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+
 const CourseDetails = ({course}) => {
-    console.log(course);
+   
     const{title, img,price,description,id}= course;
+ 
 
     return (
         <div>
@@ -19,7 +21,7 @@ const CourseDetails = ({course}) => {
                     <Card.Body>
                         <Card.Title><h3>{title}</h3></Card.Title>
                         <Card.Text>
-                           {description.slice(0,250)+'......'}<Link><small>show details</small></Link>
+                           {description.slice(0,250)+'......'}<Link to={`/course/${course.id}`}><small>show details</small></Link>
                         </Card.Text>
                     </Card.Body>
                 </Card>

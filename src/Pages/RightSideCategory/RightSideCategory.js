@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Link } from 'react-router-dom';
+
 const RightSideCategory = ({category}) => {
     const{name}=category;
     return (
@@ -9,7 +10,7 @@ const RightSideCategory = ({category}) => {
             
             <Card style={{ width: '22rem' }}>
                 <ListGroup variant="flush">
-                <Link to={`/category/${category.id}`} className='text-decoration-none text-black fw-bold '> <ListGroup.Item >{name}</ListGroup.Item></Link>
+                <Link to={`/course/${category.id}`} className='text-decoration-none text-black fw-bold '> <ListGroup.Item >{name}</ListGroup.Item></Link>
                     
                 </ListGroup>
             </Card>

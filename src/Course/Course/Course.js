@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 import CourseDetails from '../../Pages/courseDetails/CourseDetails';
 import RightSide from '../../Pages/RightSide/RightSide';
-import RightSideCategory from '../../Pages/RightSideCategory/RightSideCategory';
+
 
 
 
