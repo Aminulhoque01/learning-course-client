@@ -34,13 +34,13 @@
     box-sizing: border-box;
   }
   .inner:before {
-    content: "YES";
+    content: "dark";
     padding-left: 10px;
-    background-color: rgb(8, 6, 55);
+    background-color: rgb(13, 13, 13);
     color: #fff;
   }
   .inner:after {
-    content: "NO";
+    content: "light";
     padding-right: 10px;
     background-color: #bbb;
     color: #fff;

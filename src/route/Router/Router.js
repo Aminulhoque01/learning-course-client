@@ -34,7 +34,7 @@ export const routes= createBrowserRouter([
                 loader:({params})=>fetch(`https://learning-course-server.vercel.app/course/${params.id}`)
             },
             {
-                path:'/premium',
+                path:'/premium/:id',
                 element:<PrivetRout><GetPremium></GetPremium></PrivetRout>,
                 loader:({params})=>fetch(`https://learning-course-server.vercel.app/course/${params.id}`)
             },

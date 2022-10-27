@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { HiDocument } from "react-icons/hi";
 import jsPDF from 'jspdf';
+import GetPremium from '../../components/GetPremium/GetPremium';
 
 
 
@@ -14,16 +15,17 @@ const Category = () => {
    
    
     const handlerPdf =()=>{
-        const doc= jsPDF('landscape', 'px','a4', 'false');
+        const doc=jsPDF('landscape', 'px','a4', 'false');
             doc.addImage(Course.img, 65,20,500,400);
             doc.addPage()
             doc.text(Course.name,60,60)
             doc.text(Course.price, 60,80)
             doc.text(Course.description.slice(0,100), 60,100,)
         
-       
+            doc.save('a.pdf');
+    
 
-        doc.save('a.pdf')
+        
     }
     
     return (
@@ -41,7 +43,7 @@ const Category = () => {
                         <footer className="footer pb-5">
                             <h2>Prices:{Course.price}</h2>
                         </footer>
-                       <Link to="/premium"><Button variant="primary">Get premium access.</Button></Link>
+                        <Link to={`/premium/${Course.id}`}><Button variant="primary">Get premium access.</Button></Link>
                     </Card.Body>
                 </Card>
                 

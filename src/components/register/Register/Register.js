@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import toast from 'react-hot-toast';
+import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
 
     const { createUser, updateUserProfile } = useContext(AuthContext);
-
+    const [error, setError]=useState();
     const handlerRegister = (event) => {
         event.preventDefault();
 
@@ -20,22 +20,35 @@ const Register = () => {
         const photoURL = form.url.value;
 
         if (password.length < 6) {
-            toast('you input must 6 chart password');
+           
+            Swal.fire({
+                title: 'NOT',
+                text: "you input must 6 chart password!",
+                icon: 'warning',
+                
+                
+                cancelButtonColor: '#d33',
+                
+              }).then((result) => {
+                
+              })
         }
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                handleUpdateUserProfile(name, photoURL);
                 form.reset('');
+                handleUpdateUserProfile(name, photoURL);
+                
 
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
+                setError(error.message)
             })
 
-        console.log(name, email, password, photoURL);
+        // console.log(name, email, password, photoURL);
 
     }
 
@@ -47,9 +60,12 @@ const Register = () => {
         };
 
         updateUserProfile(profile)
-            .then(() => { })
+            .then((result) => {
+                console.log(result) 
+            })
             .cath(error => {
                 console.error(error);
+                setError(error.message);
             })
     }
 
@@ -84,6 +100,9 @@ const Register = () => {
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" name='password' placeholder="Password" />
+                                </Form.Group>
+                                <Form.Group className="mb-3 text-danger" controlId="formBasicPassword">
+                                    {error}
                                 </Form.Group>
 
                                 <Button variant="primary" type="submit">
