@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Image } from 'react-bootstrap';
+import { Image, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,6 +9,9 @@ import Button from 'react-bootstrap/Button';
 import learning from '../../asstes/Image/learning.jpg';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import ToggleSwitch from '../../Pages/ToggleSwitch/ToggleSwitch ';
+import { CTooltip } from '@coreui/react';
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
@@ -49,7 +52,7 @@ const Header = () => {
                                     user?.displayName ?
                                         <>
 
-                                            <span>{user?.displayName}</span>
+                                            
                                         </>
                                         :
                                         <>
@@ -64,12 +67,14 @@ const Header = () => {
                                 {
                                     user?.photoURL ?
                                         <>
-                                            <Image
+                                           <CTooltip content={user?.displayName} > 
+                                                <Image
 
-                                                style={{ height: '30px' }} roundedCircle
+                                                    style={{ height: '30px' }} roundedCircle
 
-                                                src={user?.photoURL}
-                                            ></Image>
+                                                    src={user?.photoURL}
+                                                ></Image>
+                                            </CTooltip>
                                             <Button onClick={handlerLogOut} variant="outline-danger">Logout</Button>
                                         </>
                                         : <FaUser></FaUser>
