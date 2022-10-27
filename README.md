@@ -1,10 +1,10 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I create react project learning-course;
 
 ## Available Scripts
 
-In the project directory, you can run:
+This site firebase deploy and live site link: https://learnin-course.web.app
 
 ### `npm start`
 
