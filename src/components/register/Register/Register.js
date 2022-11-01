@@ -63,7 +63,7 @@ const Register = () => {
             .then((result) => {
                 console.log(result) 
             })
-            .cath(error => {
+            .catch(error => {
                 console.error(error);
                 setError(error.message);
             })
