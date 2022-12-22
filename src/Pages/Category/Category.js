@@ -21,6 +21,7 @@ const Category = () => {
             doc.text(Course.name,60,60)
             doc.text(Course.price, 60,80)
             doc.text(Course.description.slice(0,100), 60,100,)
+            doc.text('amar sonar bangla')
         
             doc.save('a.pdf');
     
